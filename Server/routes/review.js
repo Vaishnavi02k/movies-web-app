@@ -18,8 +18,16 @@ router.post('/:movieId', (req, res) => {
 router.get('/myReviews', (req, res) => {
     const { userId } = req.body;
 
-    const sql = 'SELECT title,rating,review,modified from reviews,movies WHERE  user_id=? AND reviews.movie_id = movies.id'
+    const sql = 'SELECT title,rating,review,modified from movies, reviews WHERE  user_id=? AND reviews.movie_id = movies.id'
     pool.query(sql, [userId], (error, data) => {
+        res.send(result.createResult(error, data));
+    })
+})
+
+router.get('/allReviews', (req, res) => {
+
+    const sql = 'SELECT title,rating,first_name,last_name,review,modified from users,movies,reviews WHERE reviews.movie_id = movies.id AND reviews.user_id=users.id'
+    pool.query(sql, (error, data) => {
         res.send(result.createResult(error, data));
     })
 })
