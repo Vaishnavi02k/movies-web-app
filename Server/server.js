@@ -4,15 +4,15 @@ const pool = require('./db/db');
 const app = express();
 
 const moviesRouter = require('./routes/movie')
-
+const reviewRouter = require('./routes/review')
 
 //Middleware
 app.use(cors())
 app.use(express.json())
 app.use(express.static('images'))
-app.use(express.json())
 
 app.use('/movie', moviesRouter)
+app.use('/review',reviewRouter)
 
 
 
