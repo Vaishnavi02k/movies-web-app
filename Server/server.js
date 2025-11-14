@@ -3,6 +3,8 @@ const cors = require('cors');
 const pool = require('./db/db');
 const app = express();
 
+const moviesRouter = require('./routes/movie')
+
 
 //Middleware
 app.use(cors())

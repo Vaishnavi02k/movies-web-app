@@ -1,0 +1,1 @@
+select id,title,releaseDate,img from movies;
