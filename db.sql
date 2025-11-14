@@ -31,3 +31,10 @@ CREATE TABLE reviews(
     FOREIGN KEY (movie_id) REFERENCES movies(id)
 );
 
+CREATE TABLE shares(
+    review_id INT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE
+);
+
