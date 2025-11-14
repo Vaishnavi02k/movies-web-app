@@ -16,7 +16,7 @@ router.post('/add', upload.single('img'),(req, res) => {
 })
 
 router.get('/allMovies',(req,res)=>{
-    const sql = `SELECT title,description,releaseDate,img FROM movies`
+    const sql = `SELECT id, title,description,releaseDate,img FROM movies`
     pool.query(sql,(error,data)=>{
         res.send(result.createResult(error,data));
     })

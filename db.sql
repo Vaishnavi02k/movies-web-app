@@ -27,6 +27,7 @@ CREATE TABLE reviews(
     rating INT(1),
     user_id INT ,
     movie_id INT,
+    modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (movie_id) REFERENCES movies(id)
 );
@@ -37,4 +38,5 @@ CREATE TABLE shares(
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE
 );
+
 
