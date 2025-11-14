@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+const myAuth = require('./utils/auth')
 const moviesRouter = require('./routes/movie')
 const userRouter = require('./routes/user')
 
@@ -9,6 +10,7 @@ const userRouter = require('./routes/user')
 app.use(cors())
 app.use(express.json())
 app.use(express.static('images'))
+app.use(myAuth)
 
 app.use('/user/', userRouter)
 app.use('/movie', moviesRouter)
