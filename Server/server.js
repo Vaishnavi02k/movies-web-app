@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(express.static('images'))
 app.use(myAuth)
 
-app.use('/user/', userRouter)
+app.use('/user', userRouter)
 app.use('/movie', moviesRouter)
 app.use('/review',reviewRouter)
 
