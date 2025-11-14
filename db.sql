@@ -21,4 +21,20 @@ CREATE TABLE movies(
     releaseDate DATE
 );
 
+CREATE TABLE reviews(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    review VARCHAR(500),
+    rating INT(1),
+    user_id INT ,
+    movie_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+
+CREATE TABLE shares(
+    review_id INT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE
+);
 
