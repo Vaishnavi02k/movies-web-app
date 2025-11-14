@@ -16,7 +16,9 @@ CREATE TABLE users(
 CREATE TABLE movies(
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(25),
-    description VARCHAR(100),
-    img VARCHAR(30),
+    description VARCHAR(500),
+    img VARCHAR(100),
     releaseDate DATE
 );
+
+
