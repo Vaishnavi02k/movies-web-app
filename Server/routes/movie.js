@@ -6,6 +6,7 @@ const upload = multer({ dest: 'images' });
 
 router.post('/add', upload.single('img'),(req, res) => {
     const {title,description,releaseDate}=req.body;
+    const sql=''
 })
 
 module.exports = router
