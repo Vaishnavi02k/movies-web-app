@@ -68,5 +68,17 @@ router.post('/login', (req, res)=>{
     })
 })
 
+//Update (Edit) Profile
+router.put('/profile', (req, res) => {
+  const { firstName, lastName, mobile } = req.body
+  const sql = `UPDATE users SET first_name=?, last_name=?, mobile=? WHERE id = ?`
+  pool.query(
+    sql,
+    [firstName, lastName, mobile, req.uid],  //req.uid get after myAuth
+    (error, data) => {
+      res.send(result.createResult(error, data))
+    }
+  )
+})
 
 module.exports = router
