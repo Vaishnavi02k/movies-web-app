@@ -2,12 +2,13 @@ const express = require('express');
 const app = express();
 
 //Middleware
+app.use(cors())
+app.use(express.static('images'))
+app.use(express.json())
+app.use(authorization)
 
+app.use('/user', userRouter)
 
-app.get('/', (req, res)=>{
-    console.log("Express backend server")
-    res.send('Hello from backend')
-})
 //Server start
 app.listen(4000, 'localhost', ()=>{
     console.log("Server started at port 4000");
