@@ -58,17 +58,13 @@ router.post('/login', (req, res)=>{
                 //give token
                 const user = {
                     token : token,
-                    firstName : dbUser.first_Name,
-                    lastName : dbUser.last_Name
+                    firstName : dbUser.first_name,
+                    lastName : dbUser.last_name
                 }
 
                 res.send(result.createResult(err, user))
             }
         }
-        else{
-            console.log('di')
-        }
-
     })
 })
 

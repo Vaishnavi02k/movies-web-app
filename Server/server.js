@@ -9,12 +9,9 @@ const userRouter = require('./routes/user')
 app.use(cors())
 app.use(express.json())
 app.use(express.static('images'))
-// app.use(express.json())
 
 app.use('/user/', userRouter)
 app.use('/movie', moviesRouter)
-
-
 
 
 //Server start

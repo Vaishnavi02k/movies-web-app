@@ -16,7 +16,25 @@ CREATE TABLE users(
 CREATE TABLE movies(
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(25),
-    description VARCHAR(100),
-    img VARCHAR(30),
+    description VARCHAR(500),
+    img VARCHAR(100),
     releaseDate DATE
 );
+
+CREATE TABLE reviews(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    review VARCHAR(500),
+    rating INT(1),
+    user_id INT ,
+    movie_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (movie_id) REFERENCES movies(id)
+);
+
+CREATE TABLE shares(
+    review_id INT,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (review_id) REFERENCES reviews(id) ON DELETE CASCADE
+);
+
